@@ -12,3 +12,7 @@ export const addReading = (reading: Reading) => {
 
   return newReading.save();
 };
+
+export const fetchAllReadings = () => {
+  return ReadingModel.find();
+};
