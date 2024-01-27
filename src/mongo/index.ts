@@ -1,0 +1,1 @@
+export { ReadingModel } from "./readingModel";
