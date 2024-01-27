@@ -1,4 +1,5 @@
 import { model } from "mongoose";
-import { IReading, readingSchema } from "./readingSchema";
+import { readingSchema } from "./readingSchema";
+import { Reading } from "../types";
 
-export const Reading = model<IReading>("Reading", readingSchema);
+export const ReadingModel = model<Reading>("Reading", readingSchema);

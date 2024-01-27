@@ -1,23 +1,7 @@
 import { Schema } from "mongoose";
+import { Reading } from "../types";
 
-export interface IReading {
-  nickname: string;
-  model: string;
-  uid: string;
-  timestamp: string;
-  readings: {
-    pressure: number;
-    temperature: number;
-    rain: number;
-    rain_per_second: number;
-    humidity: number;
-    wind_speed: number;
-    wind_direction: number;
-    luminance: number;
-  };
-}
-
-export const readingSchema = new Schema<IReading>({
+export const readingSchema = new Schema<Reading>({
   nickname: { type: String, required: true },
   model: { type: String, required: true },
   uid: { type: String, required: true },

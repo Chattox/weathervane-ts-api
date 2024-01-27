@@ -1,1 +1,1 @@
-export { Reading } from "./readingModel";
+export { ReadingModel } from "./readingModel";
