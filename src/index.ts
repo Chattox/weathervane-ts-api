@@ -1,6 +1,7 @@
 import express, { Express, Request, Response } from "express";
 import dotenv from "dotenv";
 import { connect } from "mongoose";
+import { weatherDataRouter } from "./routes/weatherdata.routes";
 
 dotenv.config();
 
@@ -21,11 +22,7 @@ connect(dbUrl || "", { dbName: process.env.DB_COLLECTION || undefined })
   .catch((err) => console.log(err));
 
 app.use(express.json());
-
-app.post("/", (req: Request, res: Response) => {
-  console.log(req.body);
-  res.sendStatus(200);
-});
+app.use("/weatherdata", weatherDataRouter);
 
 app.listen(port, () => {
   console.log(`Server listening on port: ${port}`);
