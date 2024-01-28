@@ -1,5 +1,6 @@
 import express, { Express, Request, Response } from "express";
 import dotenv from "dotenv";
+import cors from "cors";
 import { connect } from "mongoose";
 import { weatherDataRouter } from "./routes/weatherdata.routes";
 
@@ -22,6 +23,7 @@ connect(dbUrl || "", { dbName: process.env.DB_COLLECTION || undefined })
   .catch((err) => console.log(err));
 
 app.use(express.json());
+app.use(cors<Request>());
 app.use("/weatherdata", weatherDataRouter);
 
 app.listen(port, () => {
