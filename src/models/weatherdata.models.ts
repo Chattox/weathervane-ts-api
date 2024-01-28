@@ -10,5 +10,13 @@ export const addReading = (reading: Reading) => {
     readings: reading.readings,
   });
 
+  const timestamp = new Date()
+
+  console.log(`[${timestamp.toLocaleString('en-GB')}]: Adding new reading from ${reading.nickname} to database`)
+
   return newReading.save();
+};
+
+export const fetchAllReadings = () => {
+  return ReadingModel.find();
 };
