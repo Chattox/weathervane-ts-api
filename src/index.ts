@@ -18,7 +18,12 @@ const dbUrl =
       }`
     : process.env.DB_DEV_URL;
 
-connect(dbUrl || "", { dbName: process.env.DB_COLLECTION || undefined })
+connect(dbUrl || "", {
+  dbName:
+    process.env.APP_ENV === "production"
+      ? process.env.DB_COLLECTION
+      : undefined,
+})
   .then(() => console.log("Connected to database"))
   .catch((err) => console.log(err));
 
