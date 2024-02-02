@@ -26,5 +26,5 @@ export const fetchAllReadings = () => {
 };
 
 export const fetchLatestReading = () => {
-  return ReadingModel.find().sort({ timestamp: "asc" }).limit(1).exec();
+  return ReadingModel.find().sort({ timestamp: -1 }).limit(1).exec();
 };
