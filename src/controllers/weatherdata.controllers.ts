@@ -1,9 +1,5 @@
 import { Request, Response } from "express";
-import { addReading } from "../models";
-import {
-  fetchAllReadings,
-  fetchLatestReading,
-} from "../models/weatherdata.models";
+import { addReading, fetchAllReadings, fetchLatestReading } from "../models";
 
 export const postReading = (req: Request, res: Response) => {
   addReading(req.body)
@@ -20,5 +16,5 @@ export const getAllReadings = (req: Request, res: Response) => {
 export const getLatestReading = (req: Request, res: Response) => {
   fetchLatestReading()
     .then((reading) => res.status(200).json(reading))
-    .catch((err) => console.log(err));
+    .catch((err) => res.status(400).json({ message: err.message }));
 };

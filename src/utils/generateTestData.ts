@@ -46,9 +46,11 @@ const round = (n: number, d: number): number => {
   return Math.round(n * precis) / precis;
 };
 
-export const generateTestData = (env: string, numToGen: number) => {
-  if (process.env.APP_ENV === "development" || env === "development") {
+export const generateTestData = (numToGen: number) => {
+  if (process.env.APP_ENV === "development") {
     let testTimestamp = new Date();
+
+    const readings: Reading[] = [];
 
     for (let i = 0; i < numToGen; i++) {
       // build readings object, incrementing timestamp by 15 mins for each reading
@@ -67,23 +69,23 @@ export const generateTestData = (env: string, numToGen: number) => {
         readings: {
           pressure: round(
             getRand(minMaxValues.pressure.min, minMaxValues.pressure.max),
-            6
+            2
           ),
           temperature: round(
             getRand(minMaxValues.temperature.min, minMaxValues.temperature.max),
             2
           ),
-          rain: round(getRand(minMaxValues.rain.min, minMaxValues.rain.max), 6),
+          rain: round(getRand(minMaxValues.rain.min, minMaxValues.rain.max), 4),
           rain_per_second: round(
             getRand(
               minMaxValues.rain_per_second.min,
               minMaxValues.rain_per_second.max
             ),
-            6
+            10
           ),
           humidity: round(
             getRand(minMaxValues.humidity.min, minMaxValues.humidity.max),
-            0
+            2
           ),
           wind_speed: round(
             getRand(minMaxValues.wind_speed.min, minMaxValues.wind_speed.max),
@@ -96,10 +98,11 @@ export const generateTestData = (env: string, numToGen: number) => {
           ),
         },
       };
+      readings.push(reading);
     }
+    return readings;
   } else {
     console.log("Cannot generate test data outside of development environment");
+    return [];
   }
 };
-
-generateTestData("development", 3);
