@@ -18,9 +18,9 @@ export const addReading = (reading: Reading) => {
   const timestamp = new Date();
 
   console.log(
-    `[${timestamp.toLocaleString("en-GB")}]: Adding new reading from ${
-      reading.nickname
-    } to database`
+    `[${timestamp.toLocaleString("en-GB")}] Adding new reading:
+    Timestamp: ${reading.timestamp}
+    Station: ${reading.nickname}`
   );
   if (reading.readings.wind_speed === anomalousWindSpeed) {
     console.log(
