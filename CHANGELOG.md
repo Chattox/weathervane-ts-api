@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/Chattox/weathervane-ts-api/compare/v1.1.0...v1.2.0) (2024-07-09)
+
+
+### Features
+
+* **api:** stations GET endpoint ([#11](https://github.com/Chattox/weathervane-ts-api/issues/11)) ([c267977](https://github.com/Chattox/weathervane-ts-api/commit/c2679775a58d7bdb73b576fdc6e1725e8aa830dd))
+
 ## [1.1.0](https://github.com/Chattox/weathervane-ts-api/compare/v1.0.0...v1.1.0) (2024-07-09)
 
 
