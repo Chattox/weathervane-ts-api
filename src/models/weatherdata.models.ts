@@ -33,10 +33,13 @@ export const addReading = (reading: Reading) => {
   return newReading.save();
 };
 
-export const fetchAllReadings = () => {
-  return ReadingModel.find();
+export const fetchAllReadings = (stationName: string) => {
+  return ReadingModel.find({ nickname: stationName });
 };
 
-export const fetchLatestReading = () => {
-  return ReadingModel.find().sort({ timestamp: -1 }).limit(1).exec();
+export const fetchLatestReading = (stationName: string) => {
+  return ReadingModel.find({ nickname: stationName })
+    .sort({ timestamp: -1 })
+    .limit(1)
+    .exec();
 };
