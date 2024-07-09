@@ -1,5 +1,16 @@
 # Changelog
 
+## [1.1.0](https://github.com/Chattox/weathervane-ts-api/compare/v1.0.0...v1.1.0) (2024-07-09)
+
+
+### ⚠ BREAKING CHANGES
+
+* **api:** add station URL param to GET endpoints to handle multiple stations ([#9](https://github.com/Chattox/weathervane-ts-api/issues/9))
+
+### Features
+
+* **api:** add station URL param to GET endpoints to handle multiple stations ([#9](https://github.com/Chattox/weathervane-ts-api/issues/9)) ([13c04de](https://github.com/Chattox/weathervane-ts-api/commit/13c04de9284644920602e54ccff6a8f3acbc8b77))
+
 ## [1.0.0](https://github.com/Chattox/weathervane-ts-api/compare/v0.9.0...v1.0.0) (2024-07-09)
 
 
