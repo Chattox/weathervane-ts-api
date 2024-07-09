@@ -1,6 +1,5 @@
 {
   "release-type": "node",
-  "release-as": "1.1.0",
   "include-component-in-tag": false,
   "packages": {
     ".": {}
