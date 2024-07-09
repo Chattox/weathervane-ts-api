@@ -43,3 +43,9 @@ export const fetchLatestReading = (stationName: string) => {
     .limit(1)
     .exec();
 };
+
+export const fetchStations = () => {
+  return ReadingModel.distinct("nickname").then((stations) => ({
+    stations: stations,
+  }));
+};

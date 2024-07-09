@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import { addReading, fetchAllReadings, fetchLatestReading } from "../models";
+import { fetchStations } from "../models/weatherdata.models";
 
 export const postReading = (req: Request, res: Response) => {
   addReading(req.body)
@@ -25,4 +26,10 @@ export const getLatestReading = (req: Request, res: Response) => {
   } else {
     res.status(400).json({ message: "No station URL parameter found" });
   }
+};
+
+export const getStations = (req: Request, res: Response) => {
+  fetchStations()
+    .then((stations) => res.status(200).json(stations))
+    .catch((err) => res.status(400).json({ message: err.message }));
 };
