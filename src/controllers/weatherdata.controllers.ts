@@ -8,13 +8,21 @@ export const postReading = (req: Request, res: Response) => {
 };
 
 export const getAllReadings = (req: Request, res: Response) => {
-  fetchAllReadings()
-    .then((readings) => res.status(200).json(readings))
-    .catch((err) => res.status(400).json({ message: err.message }));
+  if (req.query.station) {
+    fetchAllReadings(req.query.station as string)
+      .then((readings) => res.status(200).json(readings))
+      .catch((err) => res.status(400).json({ message: err.message }));
+  } else {
+    res.status(400).json({ message: "No station URL parameter found" });
+  }
 };
 
 export const getLatestReading = (req: Request, res: Response) => {
-  fetchLatestReading()
-    .then((reading) => res.status(200).json(reading))
-    .catch((err) => res.status(400).json({ message: err.message }));
+  if (req.query.station) {
+    fetchLatestReading(req.query.station as string)
+      .then((reading) => res.status(200).json(reading))
+      .catch((err) => res.status(400).json({ message: err.message }));
+  } else {
+    res.status(400).json({ message: "No station URL parameter found" });
+  }
 };
