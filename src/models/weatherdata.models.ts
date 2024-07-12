@@ -1,3 +1,4 @@
+import pc from "picocolors";
 import { ReadingModel } from "../mongo";
 import { Reading } from "../types";
 
@@ -18,16 +19,28 @@ export const addReading = (reading: Reading) => {
 
   const timestamp = new Date();
 
+  const stationColor = (station: string) => {
+    if (station === "garden-station") {
+      return `${pc.magenta(`${station}`)}`;
+    } else if (station === "office-station") {
+      return `${pc.cyan(`${station}`)}`;
+    } else {
+      return station;
+    }
+  };
+
   console.log(
-    `[${timestamp.toLocaleString("en-GB")}] Adding new reading:
-    Timestamp: ${reading.timestamp}
-    Station: ${reading.nickname}`
+    `${pc.green("[INFO]")} ${pc.bold(
+      `[${timestamp.toLocaleString("en-GB")}]`
+    )} Adding new reading:
+    \tTimestamp: ${reading.timestamp}
+    \tStation: ${stationColor(reading.nickname)}`
   );
   if (reading.readings.wind_speed === anomalousWindSpeed) {
     console.log(
-      `[${timestamp.toLocaleString(
-        "en-GB"
-      )}]: Wind speed sensor glitch detected, ignoring wind speed value`
+      `${pc.yellow("[WARN]")} ${pc.bold(
+        `[${timestamp.toLocaleString("en-GB")}]`
+      )} Wind speed sensor glitch detected, ignoring wind speed value`
     );
   }
 
