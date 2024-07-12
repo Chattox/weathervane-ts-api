@@ -6,5 +6,6 @@ export const readingSchema = new Schema<Reading>({
   model: { type: String, required: true },
   uid: { type: String, required: true },
   timestamp: { type: String, required: true },
+  logs: { type: String, required: false },
   readings: { type: Object, required: true },
 });

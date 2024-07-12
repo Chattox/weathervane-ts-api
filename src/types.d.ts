@@ -3,6 +3,7 @@ export type Reading = {
   model: string;
   uid: string;
   timestamp: string;
+  logs?: string;
   readings: {
     pressure: number;
     temperature: number;
