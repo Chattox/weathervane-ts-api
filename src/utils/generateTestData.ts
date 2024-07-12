@@ -1,6 +1,7 @@
 // generates random readings to add to test database
 // only for use in dev mode
 
+import pc from "picocolors";
 import { Reading } from "../types";
 
 // min and max values per reading to generate values between
@@ -102,7 +103,11 @@ export const generateTestData = (numToGen: number) => {
     }
     return readings;
   } else {
-    console.log("Cannot generate test data outside of development environment");
+    console.log(
+      `${pc.red(
+        "[ERROR]"
+      )} Cannot generate test data outside of development environment`
+    );
     return [];
   }
 };

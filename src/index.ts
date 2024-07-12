@@ -1,3 +1,4 @@
+import pc from "picocolors";
 import express, { Express, Request, Response } from "express";
 import dotenv from "dotenv";
 import cors from "cors";
@@ -24,7 +25,7 @@ connect(dbUrl || "", {
       ? process.env.DB_COLLECTION
       : undefined,
 })
-  .then(() => console.log("Connected to database"))
+  .then(() => console.log(`${pc.green("[INFO]")} Connected to database`))
   .catch((err) => console.log(err));
 
 app.use(express.json());
@@ -32,5 +33,5 @@ app.use(cors<Request>());
 app.use("/weatherdata", weatherDataRouter);
 
 app.listen(port, () => {
-  console.log(`Server listening on port: ${port}`);
+  console.log(`${pc.green("[INFO]")} Server listening on port: ${port}`);
 });
