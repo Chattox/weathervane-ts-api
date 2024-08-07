@@ -11,6 +11,7 @@ export const addReading = (reading: Reading) => {
     uid: reading.uid,
     timestamp: reading.timestamp,
     logs: reading.logs,
+    voltage: reading.voltage,
     readings:
       reading.readings.wind_speed === anomalousWindSpeed // Wind speed sensor glitch workaround, ignore reading if sensor glitched on this reading
         ? { ...reading.readings, wind_speed: 0 }
