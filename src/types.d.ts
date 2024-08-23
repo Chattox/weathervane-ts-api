@@ -4,6 +4,7 @@ export type Reading = {
   uid: string;
   timestamp: string;
   logs?: string;
+  voltage?: number;
   readings: {
     pressure: number;
     temperature: number;
