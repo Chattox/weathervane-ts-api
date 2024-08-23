@@ -1,6 +1,9 @@
 import { Request, Response } from "express";
 import { addReading, fetchAllReadings, fetchLatestReading } from "../models";
-import { fetchStations } from "../models/weatherdata.models";
+import {
+  fetchReadingsInDateRange,
+  fetchStations,
+} from "../models/weatherdata.models";
 
 export const postReading = (req: Request, res: Response) => {
   addReading(req.body)
@@ -25,6 +28,22 @@ export const getLatestReading = (req: Request, res: Response) => {
       .catch((err) => res.status(400).json({ message: err.message }));
   } else {
     res.status(400).json({ message: "No station URL parameter found" });
+  }
+};
+
+export const getDateRangeReadings = (req: Request, res: Response) => {
+  if (req.query.station && req.query.startDate && req.query.startDate) {
+    fetchReadingsInDateRange(
+      req.query.station as string,
+      req.query.startDate as string,
+      req.query.endDate as string
+    )
+      .then((data) => res.status(200).json(data))
+      .catch((err) => res.status(400).json({ message: err.message }));
+  } else {
+    res.status(400).json({
+      message: "Station nickname or date range missing from URL parameters",
+    });
   }
 };
 

@@ -1,7 +1,3 @@
-export {
-  addReading,
-  fetchAllReadings,
-  fetchLatestReading,
-} from "./weatherdata.models";
+export * from "./weatherdata.models";
 
-export { addTestData } from "./util.models";
+export * from "./util.models";

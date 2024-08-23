@@ -59,6 +59,17 @@ export const fetchLatestReading = (stationName: string) => {
     .exec();
 };
 
+export const fetchReadingsInDateRange = (
+  stationName: string,
+  startDate: string,
+  endDate: string
+) => {
+  return ReadingModel.find({
+    nickname: stationName,
+    timestamp: { $gte: startDate, $lt: endDate },
+  });
+};
+
 export const fetchStations = () => {
   return ReadingModel.distinct("nickname").then((stations) => ({
     stations: stations,

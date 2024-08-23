@@ -126,6 +126,20 @@ Requires:
 ]
 ```
 
+### /weatherdata/daterange
+
+#### - GET
+
+Returns all readings from target station within supplied date range
+
+Requires URL query params:
+
+- `station=<string>`
+- `startDate=<string>`
+- `endDate=<string>`
+
+Where `startDate` and `endDate` are ISO timestamps `YYYY-mm-DDTHH:MM:SSZ`
+
 ### /weatherdata/stations
 
 #### - GET
