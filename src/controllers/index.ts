@@ -1,7 +1,2 @@
-export {
-  postReading,
-  getAllReadings,
-  getLatestReading,
-} from "./weatherdata.controllers";
-
-export { createTestData } from "./util.controllers";
+export * from "./weatherdata.controllers";
+export * from "./util.controllers";
