@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.3.0](https://github.com/Chattox/weathervane-ts-api/compare/v1.2.0...v1.3.0) (2024-08-23)
+
+
+### Features
+
+* **api:** daterange endpoint ([#17](https://github.com/Chattox/weathervane-ts-api/issues/17)) ([67000c2](https://github.com/Chattox/weathervane-ts-api/commit/67000c2096386fb427117f142d13d9079a67581a))
+* **api:** ssupport battery voltage data in readings ([#16](https://github.com/Chattox/weathervane-ts-api/issues/16)) ([25e6bed](https://github.com/Chattox/weathervane-ts-api/commit/25e6bed986f4808b28b22b11fc3c51903137974c))
+* **console-logging:** improve console log readability ([#15](https://github.com/Chattox/weathervane-ts-api/issues/15)) ([759ec02](https://github.com/Chattox/weathervane-ts-api/commit/759ec028a4f556cb38b9e39a6518b80b79785532))
+* **db:** ability to receive logs from enviro as part of reading upload ([#13](https://github.com/Chattox/weathervane-ts-api/issues/13)) ([cf6ca31](https://github.com/Chattox/weathervane-ts-api/commit/cf6ca3128f440f1d741adbc1491df476fc575ae7))
+
 ## [1.2.0](https://github.com/Chattox/weathervane-ts-api/compare/v1.1.0...v1.2.0) (2024-07-09)
 
 
