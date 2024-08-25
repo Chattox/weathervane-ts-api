@@ -21,9 +21,7 @@ const dbUrl =
 
 connect(dbUrl || "", {
   dbName:
-    process.env.APP_ENV === "production"
-      ? process.env.DB_COLLECTION
-      : undefined,
+    process.env.APP_ENV === "production" ? process.env.DB_COLLECTION : "test",
 })
   .then(() => console.log(`${pc.green("[INFO]")} Connected to database`))
   .catch((err) => console.log(err));
