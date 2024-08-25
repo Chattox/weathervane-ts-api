@@ -49,11 +49,19 @@ export const addReading = (reading: Reading) => {
 };
 
 export const fetchAllReadings = (stationName: string) => {
-  return ReadingModel.find({ nickname: stationName });
+  return ReadingModel.find({ nickname: stationName }, [
+    "timestamp",
+    "readings",
+    "voltage",
+  ]);
 };
 
 export const fetchLatestReading = (stationName: string) => {
-  return ReadingModel.find({ nickname: stationName })
+  return ReadingModel.find({ nickname: stationName }, [
+    "timestamp",
+    "readings",
+    "voltage",
+  ])
     .sort({ timestamp: -1 })
     .limit(1)
     .exec();
@@ -64,10 +72,13 @@ export const fetchReadingsInDateRange = (
   startDate: string,
   endDate: string
 ) => {
-  return ReadingModel.find({
-    nickname: stationName,
-    timestamp: { $gte: startDate, $lt: endDate },
-  });
+  return ReadingModel.find(
+    {
+      nickname: stationName,
+      timestamp: { $gte: startDate, $lt: endDate },
+    },
+    ["timestamp", "readings", "voltage"]
+  );
 };
 
 export const fetchStations = () => {
