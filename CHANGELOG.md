@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.0](https://github.com/Chattox/weathervane-ts-api/compare/v1.3.0...v1.4.0) (2024-08-25)
+
+
+### Features
+
+* **db:** massively improve query performance ([#18](https://github.com/Chattox/weathervane-ts-api/issues/18)) ([92ccb69](https://github.com/Chattox/weathervane-ts-api/commit/92ccb6972f921d0f65e01e691eab049efe7e9028))
+
 ## [1.3.0](https://github.com/Chattox/weathervane-ts-api/compare/v1.2.0...v1.3.0) (2024-08-23)
 
 
