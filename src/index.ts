@@ -12,11 +12,7 @@ const port = process.env.PORT || 3000;
 
 const dbUrl =
   process.env.APP_ENV === "production"
-    ? `mongodb+srv://${encodeURIComponent(
-        process.env.DB_USERNAME!
-      )}:${encodeURIComponent(process.env.DB_PASSWORD!)}${
-        process.env.DB_PROD_URL
-      }`
+    ? process.env.DB_PROD_URL
     : process.env.DB_DEV_URL;
 
 connect(dbUrl || "", {
